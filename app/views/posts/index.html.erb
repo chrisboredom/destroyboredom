@@ -1,0 +1,9 @@
+<h1>Destroyboredom Rails Blog</h1>
+<% @posts.each do |post| %>
+	<p><%= post.created_at.strftime("%b %d, %Y") %></p>
+	<h2><%= link_to post.title, post %></h2>
+	<p><%= post.body %></p>
+	<br>
+<% end %>
+
+<%= link_to "New post", new_post_path %>
