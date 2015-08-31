@@ -3,6 +3,9 @@
 	<p><%= post.created_at.strftime("%b %d, %Y") %></p>
 	<h2><%= link_to post.title, post %></h2>
 	<p><%= post.body %></p>
+	<div id="photo">
+		<%= image_tag post.photo(:medium) %>
+	</div>
 	<br>
 <% end %>
 
