@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby "2.2.3"
 
 gem 'rails', '4.2.3'
 gem 'pg'
@@ -13,6 +14,7 @@ gem 'rails_12factor', '~> 0.0.3'
 gem 'puma', '~> 2.13.4'
 gem 'font-awesome-rails', '~> 4.4.0.0'
 gem 'paperclip', '~> 4.3.0'
+gem 'aws-sdk', '~> 2.1.18'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
