@@ -77,7 +77,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  # Sets paperclip to Upload to Amazon S3
+  # Sets paperclip to Upload to Amazon S3 by default
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
