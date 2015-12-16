@@ -5,6 +5,9 @@
 				<%= image_tag @post.photo(:medium) %>
 			</div>
 		<% end %>
-<%= link_to 'Edit', edit_post_path(@post) %>
-<%= link_to 'Delete', post_path(@post), method: :delete %>
-<%= link_to 'Home', root_path %>
+<% if user_signed_in? %>
+ <%= link_to 'Edit', edit_post_path(@post) %>
+ <%= link_to 'Delete', post_path(@post), method: :delete %>
+<% else %>
+  <%= link_to 'Home', root_path %>
+<% end %>

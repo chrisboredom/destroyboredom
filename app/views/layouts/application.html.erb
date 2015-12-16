@@ -7,10 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<%= link_to "Destroyboredom", root_path %>
 <% if notice %>
   <p class="notice"><%= notice %></p>
 <% elsif alert %>
   <p class="alert"><%= alert %></p>
+<% end %>
+
+<% if user_signed_in? %>
+  <%= link_to "New post", new_post_path %>
+  <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+<% else %>
+  <%=  link_to "Sign In", new_user_session_path %>
 <% end %>
 
 <%= yield %>
