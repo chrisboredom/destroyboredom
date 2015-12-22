@@ -77,6 +77,9 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  config.action_mailer.default_url_options = { host: 'https://destroyboredom.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+
   # Sets paperclip to Upload to Amazon S3 by default
   config.paperclip_defaults = {
     :storage => :s3,
