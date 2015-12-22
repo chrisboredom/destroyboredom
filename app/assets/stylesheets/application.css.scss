@@ -13,4 +13,7 @@
  *= require_tree .
  *= require_self
  */
+ .hidden {
+  display: none;
+}
 @import "font-awesome";
