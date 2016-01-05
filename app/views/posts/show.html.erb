@@ -1,5 +1,7 @@
 <h2><%= @post.title %></h2>
-	<p><%= @post.body %></p>
+  <div id="content">
+	 <%= markdown(@post.body) %>
+  </div>
 		<% if @post.photo? %>
 			<div id="photo">
 				<%= image_tag @post.photo(:medium) %>
