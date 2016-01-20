@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "2.2.3"
+ruby "2.3.0"
 
 gem 'rails', '4.2.3'
 gem 'pg'
@@ -11,7 +11,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_12factor', '~> 0.0.3'
-gem 'puma', '~> 2.13.4'
+gem 'puma', '~> 2.15.3'
 gem 'font-awesome-rails', '~> 4.4.0.0'
 gem 'paperclip', '~> 4.3.0'
 gem 'aws-sdk', '< 2.0'
