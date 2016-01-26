@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
   extend FriendlyId
+  searchkick
   friendly_id :title, use: :slugged
 	validates :title, presence: true, length: { minimum: 2 }
 	validates :body, presence: true, length: { minimum: 5 }
