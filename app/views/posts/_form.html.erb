@@ -9,6 +9,10 @@
   </div>
   <br>
   <div class="field">
+    <%= f.label :photo %><br>
+    <% if @post.photo.exists? %>
+      <%= image_tag @post.photo.url(:thumb) %>
+    <% end %>
     <%= f.file_field :photo %><br>
   </div>
   <br>
