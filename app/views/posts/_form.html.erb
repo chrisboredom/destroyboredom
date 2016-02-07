@@ -9,6 +9,16 @@
   </div>
   <br>
   <div class="field">
+    <%= f.label :status %><br>
+    <%= f.select :status, ["Draft", "Published", "Scheduled"], selected: status_for(@post) %>
+  </div>
+  <br>
+  <div class="field published-field">
+    <%= f.label :published_at, "Publish At" %><br>
+    <%= f.datetime_select :published_at %>
+  </div>
+  <br>
+  <div class="field">
     <%= f.label :photo %><br>
     <% if @post.photo.exists? %>
       <%= image_tag @post.photo.url(:thumb) %>
