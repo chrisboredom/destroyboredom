@@ -13,8 +13,155 @@
  *= require_tree .
  *= require_self
  */
+
+ // ----- Variables ----//
+
+ $grey: #282c37;
+ $blue: #2b90d9;
+ $light_grey: #d9e1e8;
+ $slate: #9baec8;
+
+ // ----- Global Styles ----//
+
+ html, body {
+  font-family: 'Open Sans', sans-serif;
+ }
+
+ .clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+ }
+
+ .clearfix:after {
+  clear: both;
+ }
+
+ .wrapper {
+  width: 1440px;
+  max-width: 90%;
+  margin: 0 auto;
+ }
+
+ h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+ }
+
+ .button_wrapper {
+  text-align: center;
+  .button {
+  border: none;
+  outline: none;
+  border-radius: 2rem;
+  padding: .5rem 3rem;
+  font-weight: 700;
+  color: $grey;
+  text-decoration: none;
+  text-align: center;
+  background: $light_grey;
+  }
+ }
+
+
+ .button_hightlight {
+  background: $blue;
+ }
+
  .hidden {
   display: none;
 }
+
+ // ----- Header Styles ----//
+
+ #top_header {
+  padding: 1.5em 0;
+  a {
+    text-decoration: none;
+    color: $grey;
+  }
+  .logo {
+    float: left;
+    text-transform: uppercase; // --optional --//
+    font-size: 1.15em;
+    font-weight: 700;
+    span {
+      font-weight: 300;
+      color: $blue;
+    }
+  }
+  #main_nav {
+    float: right;
+    font-size: .9em;
+    padding-top: 1em;
+    a {
+      color: $blue;
+      text-decoration: none;
+      margin-left: 1em;
+      &:visited {
+        color: $slate;
+      }
+      &:hover {
+        color: #9baec8;
+      }
+    }
+  }
+ }
+
+ // ----- Post Styles ----//
+
+ #content {
+  h2 {
+    font-size: 1.2em;
+    a {
+      text-decoration: none;
+      color: $blue;
+      &:visited {
+        color: $slate;
+      }
+      &:hover {
+        color: #9baec8;
+      }
+    }
+  }
+  p {
+    font-size: .8em;
+  }
+ }
+
+// ----- Footer Styles ----//
+
+footer {
+  text-align: center;
+  // width: 1440px;
+  margin: 0 auto;
+  .search_form {
+    margin-top: 3em;
+    input[type="text"], input[type="search"] {
+      width: 25%;
+      margin: 0 .5%;
+      height: .5em;
+      border: 5px;
+      outline: none;
+      border-radius: .3em;
+      background: $light_grey;
+      padding: .5em 1.25em;
+      color: #282c37;
+    }
+  }
+  a,i {
+    text-decoration: none;
+  }
+  .sign {
+    float: right;
+    font-size: .9em;
+  }
+  a {
+    text-decoration: none;
+    font-size: .8em;
+    color: $grey;
+  }
+}
+
+// ----- Mixins ----//
+
 @import "font-awesome";
 @import "pygments";

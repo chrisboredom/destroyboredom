@@ -4,27 +4,57 @@
   <title>Destroyboredom</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,700' rel='stylesheet' type='text/css'>
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" rel="stylesheet"></link>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
-<%= render 'layouts/search' %>
-<%= link_to "Destroyboredom", root_path %>
-<% if notice %>
-  <p class="notice"><%= notice %></p>
-<% elsif alert %>
-  <p class="alert"><%= alert %></p>
-<% end %>
+  <header id="top_header" class="clearfix">
+    <div class="wrapper">
+      <a href="/"><h1 class="logo">Destroy<span>boredom</span></h1></a>
+      <nav id="main_nav">
+        <a href="https://github.com/chrisboredom">Github</a>
+        <a href="https://twitter.com/chrisboredom/">Twitter</a>
+        <%= link_to "Contact", new_contact_path %>
+      </nav>
+    </div>
+  </header>
 
-<% if user_signed_in? %>
-  <%= link_to "New post", new_post_path %>
-  <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
-<% else %>
-  <%=  link_to "Sign In", new_user_session_path %>
-<% end %>
+  <section id="banner" class="clearfix">
+    <div class="wrapper">
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% elsif alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+    </div>
+  </section>
 
-<%= yield %>
-<br>
-<br>
-<i class="fa fa-github"></i> | <i class="fa fa-twitter"></i>
+  <div id="content">
+    <div class="wrapper">
+      <%= yield %>
+    </div>
+  </div>
+
+  <br>
+  <br>
+
+  <div class="wrapper">
+    <footer>
+      <div class="search_form">
+        <%= render 'layouts/search' %>
+      </div>
+      <p>&copy; 2016 Chris Mangano</p>
+      <p><a href ="https://github.com/chrisboredom"><i class="fa fa-github"></i></a> | <a href="https://twitter.com/chrisboredom/"><i class="fa fa-twitter"></i></a></p>
+      <div class="sign">
+        <% if user_signed_in? %>
+          <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+        <% else %>
+          <%=  link_to "Sign In", new_user_session_path %>
+        <% end %>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
