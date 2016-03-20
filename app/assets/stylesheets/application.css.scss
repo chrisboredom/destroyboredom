@@ -14,14 +14,21 @@
  *= require_self
  */
 
- // ----- Variables ----//
+ // ----- Variables ---- //
 
- $grey: #282c37;
- $blue: #2b90d9;
+ $grey:       #282c37;
+ $blue:       #2b90d9;
  $light_grey: #d9e1e8;
- $slate: #9baec8;
+ $slate:      #9baec8;
+ $orange:     #ff5f2e;
 
  // ----- Global Styles ----//
+
+ .border {
+  height: 3px;
+  border: 0;
+  background-color: $blue;
+ }
 
  html, body {
   font-family: 'Open Sans', sans-serif;
@@ -51,26 +58,40 @@
   .button {
   border: none;
   outline: none;
-  border-radius: 2rem;
+  border-radius: .3rem;
   padding: .5rem 3rem;
-  font-weight: 700;
+  font-weight: 300;
   color: $grey;
   text-decoration: none;
   text-align: center;
   background: $light_grey;
   }
+  .search_button {
+  border: none;
+  outline: none;
+  padding: .3rem 1rem;
+  border-radius: .3em;
+  font-weight: 300;
+  color: $grey;
+  text-decoration: none;
+  text-align: center;
+  background: $light_grey;
+  transition: all .3s ease-in-out;
+  &:hover {
+        color: $orange;
+    }
+  }
  }
 
-
- .button_hightlight {
-  background: $blue;
- }
+ //.button_highlight {
+ // background: $blue;
+ //}
 
  .hidden {
   display: none;
-}
+ }
 
- // ----- Header Styles ----//
+ // ----- Header Styles ---- //
 
  #top_header {
   padding: 1.5em 0;
@@ -86,6 +107,10 @@
     span {
       font-weight: 300;
       color: $blue;
+      transition: all .3s ease-in-out;
+      &:hover {
+        color: $orange;
+      }
     }
   }
   #main_nav {
@@ -96,38 +121,122 @@
       color: $blue;
       text-decoration: none;
       margin-left: 1em;
+      transition: all .3s ease-in-out;
       &:visited {
         color: $slate;
       }
       &:hover {
-        color: #9baec8;
+        color: $orange;
       }
     }
   }
  }
 
- // ----- Post Styles ----//
+ // ----- Post Styles ---- //
 
  #content {
   h2 {
-    font-size: 1.2em;
+    font-size: 1.3em;
     a {
       text-decoration: none;
+      transition: all .3s ease-in-out;
       color: $blue;
       &:visited {
         color: $slate;
       }
       &:hover {
-        color: #9baec8;
+        color: $orange;
       }
     }
   }
   p {
-    font-size: .8em;
+    font-size: .9em;
   }
  }
 
-// ----- Footer Styles ----//
+ .post_form {
+  input[type="text"], textarea {
+      width: 25%;
+      margin: 0 .5%;
+      border: 1px solid $light_grey;
+      outline: none;
+      border-radius: .3em;
+      background: #FFFFFF;
+      padding: .5em 1.25em;
+      color: $grey;
+    }
+  text-align: center;
+  margin-top: 2em;
+  textarea {
+    width: 75%;
+    min-height: 300px;
+  }
+ }
+
+ // ----- Contact Styles ---- //
+
+ .hello_form {
+  input[type="text"], [type="email"], textarea {
+      width: 25%;
+      margin: 0 .5%;
+      border: 1px solid $light_grey;
+      outline: none;
+      border-radius: .3em;
+      background: #FFFFFF;
+      padding: .5em 1.25em;
+      color: $grey;
+    }
+  text-align: center;
+  margin-top: 2em;
+  textarea {
+    width: 50%;
+    min-height: 200px;
+  }
+ }
+
+ // ----- Devise Styles ---- //
+
+ .login_form {
+  input[type="email"], input[type="password"] {
+      width: 25%;
+      margin: 0 .5%;
+      border: 1px solid $light_grey;
+      outline: none;
+      border-radius: .3em;
+      background: #FFFFFF;
+      padding: .5em 1.25em;
+      color: $grey;
+    }
+  text-align: center;
+  a {
+    text-decoration: none;
+    transition: all .3s ease-in-out;
+    color: $blue;
+    &:visited {
+      color: $slate;
+      }
+    &:hover {
+      color: $orange;
+    }
+  }
+  .password_button {
+  border: none;
+  outline: none;
+  padding: .3rem 1rem;
+  border-radius: .3em;
+  font-weight: 300;
+  color: $grey;
+  text-decoration: none;
+  text-align: center;
+  background: $light_grey;
+  transition: all .3s ease-in-out;
+  &:hover {
+        color: $orange;
+    }
+  }
+ }
+
+// ----- Footer Styles ---- //
 
 footer {
   text-align: center;
@@ -138,11 +247,10 @@ footer {
     input[type="text"], input[type="search"] {
       width: 25%;
       margin: 0 .5%;
-      height: .5em;
-      border: 5px;
+      height: 1.1em;
+      border: 1px solid $light_grey;
       outline: none;
       border-radius: .3em;
-      background: $light_grey;
       padding: .5em 1.25em;
       color: #282c37;
     }
@@ -154,14 +262,64 @@ footer {
     float: right;
     font-size: .9em;
   }
-  a {
+  a, p {
     text-decoration: none;
     font-size: .8em;
     color: $grey;
   }
 }
 
-// ----- Mixins ----//
+// ----- Pagination ---- //
+
+.pagination {
+  background: white;
+  cursor: default;
+  a, span, em {
+    padding: 0.2em 0.5em;
+    display: block;
+    float: left;
+    margin-right: 1px;
+  }
+  .disabled {
+    color: $light_grey;
+    border: 1px solid #dddddd;
+    border-radius: .2rem;
+    margin: 0 .8em 0 0;
+  }
+  .current {
+    font-weight: 300;
+    background: $slate;
+    color: white;
+    border: 1px solid $slate;
+    border-radius: .2rem;
+    margin: 0 .8em 0 0;
+  }
+  a {
+    text-decoration: none;
+    color: $slate;
+    border: 1px solid $slate;
+    border-radius: .2rem;
+    &:hover, &:focus {
+      color: $orange;
+      border-color: $grey;
+    }
+  }
+  .page_info {
+    background: #2e6ab1;
+    color: white;
+    padding: 0.4em 0.6em;
+    width: 22em;
+    margin-bottom: 0.3em;
+    text-align: center;
+    b {
+      color: #000033;
+      background: #2e6ab1 + 60;
+      padding: 0.1em 0.25em;
+    }
+  }
+}
+
+// ----- Mixins ---- //
 
 @import "font-awesome";
 @import "pygments";
